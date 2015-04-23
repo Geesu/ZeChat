@@ -1,11 +1,7 @@
 class MessagesController < ApplicationController
   # Create a new message
   def create
-    if msg.save
-      send_message :create_success, msg, namespace: :messages
-    else
-      send_message :create_fail, msg, namespace: :messages
-    end
+    render json: Message.create(attributes_for_new_message)
   end
 
   # Edit an existing message
@@ -14,13 +10,13 @@ class MessagesController < ApplicationController
   end
 
   # Reply with all available messages
-  def show
-    render json: Message.all.to_json, root: false
+  def index
+    render json: Message.all
   end
 
   private
 
-  def msg
-    @msg ||= Message.new message
+  def attributes_for_new_message
+    params.require(:message).permit(:user_id, :message)
   end
 end
