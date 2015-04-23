@@ -1,0 +1,14 @@
+defaults: &defaults
+
+development:
+  <<: *defaults
+  database_url: postgresql://ze_chat:a43asdf@localhost/ze_chat
+
+test:
+  <<: *defaults
+
+staging:
+  <<: *defaults
+
+production:
+  <<: *defaults
