@@ -1,6 +1,1 @@
-Set up a postgresql db
-
-createdb ze_chat
-createuser --no-super --no-createrole --createdb ze_chat
-psql
-ALTER ROLE ze_chat password 'blarg';
+This is just a test rails application to implement web sockets w/an ember CLI app.
